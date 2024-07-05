@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scraping Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container" id="modal">
+            <form method="post" action="{{ url_for('index') }}" onsubmit="showLoader()">
+                <h2 class="title">Scraping Tool</h2>
+                <div class="input-field">
+                    <label for="site">Choose a site:</label>
+                    <select name="site" id="site">
+                        <option value="verstei">www.versteigerungskalender.de</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label for="sector">Filter by sector:</label>
+                    <select name="sector" id="sector">
+                        <option value=""></option>
+                        <option value="40098">Agriculture & Animals</option>
+                        <option value="40142">Architects & Planning Offices</option>
+                        <option value="40116">Automotive & Bikes</option>
+                        <option value="40100">Ancillary construction trades</option>
+                        <option value="40102">Contractors</option>
+                        <option value="40106">Office & IT Services</option>
+                        <option value="40108">Chemicals, Plastics, Paints</option>
+                        <option value="40110">Printing & Publishing</option>
+                        <option value="40112">Retail, Wholesale & Online Trade</option>
+                        <option value="40114">Energy & Environment</option>
+                        <option value="40118">Financial Services & Private Equity Firms</option>
+                        <option value="40104">Research & Education</option>
+                        <option value="40122">Garden & Landscaping</option>
+                        <option value="40124">Glass</option>
+                        <option value="40128">Craft</option>
+                        <option value="40130">House Services</option>
+                        <option value="40132">Woodworking & Trade</option>
+                        <option value="40134">Hotel & Gastronomy, Food Production</option>
+                        <option value="40136">Real estate</option>
+                        <option value="40138">Import/Export</option>
+                        <option value="40140">Industry</option>
+                        <option value="40144">Cosmetics & Studios</option>
+                        <option value="40148">Art & Culture</option>
+                        <option value="99867">Mechanical engineering</option>
+                        <option value="40152">Medicine & Care</option>
+                        <option value="40154">Personnel services</option>
+                        <option value="40156">Security service</option>
+                        <option value="40160">Sports & Leisure</option>
+                        <option value="40162">Steel & Metal</option>
+                        <option value="40164">Textile trade and production</option>
+                        <option value="40166">Tourism & Travel</option>
+                        <option value="40168">Transport & Logistics</option>
+                        <option value="40174">Car Washes & Cleaning</option>
+                        <option value="40176">Advertising & Marketing</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label for="keywords">Keywords:</label>
+                    <input type="text" id="keywords" name="keywords" placeholder="Enter keywords">
+                </div>
+                <button type="submit">Scrape</button>
+                <div class="download-link">
+                    <a href="{{ url_for('download_file', filename=filename) }}">Download Excel</a>
+                </div>
+            </form>
+            <div class="scraped-data">
+                <h2 class="">Scraped Data</h2>
+                <button type="button" onclick="toggleTable()">Show table</button>
+                <div class="table-container" id="table">
+                    
+                </div>
+                <div class="download-link">
+                    <a href="{{ url_for('download_file', filename=filename) }}">Download Excel</a>
+                </div>
+            </div>
+        </div>
+        
+            
+        
+    </div>
+    <div class="loader" id="loader"></div>
+    <script>
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+            modal.style.display = 'none';
+        }
+
+        window.onload = function() {
+            document.getElementById('loader').style.display = 'none';
+        }
+        function toggleTable() {
+    var table = document.getElementById('table');
+    var button = document.querySelector('button[onclick="toggleTable()"]');
+    
+    if (table.style.display === 'none' || table.style.display === '') {
+        table.style.display = 'block';
+        button.textContent = 'Hide table';
+    } else {
+        table.style.display = 'none';
+        button.textContent = 'Show table';
+    }
+}
+
+    </script>
+</body>
+</html>

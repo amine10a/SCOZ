@@ -1,0 +1,34 @@
+<select name="site" id="site" class="choose-website">
+    <option value="" selected="" disabled="">Choose Website</option>
+    <option value="versteigerungskalender">www.versteigerungskalender.de</option>
+    <option value="another-site">www.another-site.de</option>
+</select>
+<div id="dynamic-inputs"></div>
+<script>
+    const siteInputs = {
+    versteigerungskalender: `
+        <div class="input-container">
+            <input type="text" name="input1" placeholder="Input for Versteigerungskalender">
+        </div>
+    `,
+    "another-site": `
+        <div class="input-container">
+            <input type="text" name="input2" placeholder="Input for Another Site">
+        </div>
+        <div class="input-container">
+            <input type="text" name="input3" placeholder="Another input for Another Site">
+        </div>
+    `
+};
+
+document.getElementById('site').addEventListener('change', function() {
+    const selectedSite = this.value;
+    const dynamicInputs = document.getElementById('dynamic-inputs');
+    dynamicInputs.innerHTML = '';
+
+    if (selectedSite && siteInputs[selectedSite]) {
+        dynamicInputs.innerHTML = siteInputs[selectedSite];
+    }
+});
+
+</script>
