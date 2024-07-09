@@ -1561,13 +1561,13 @@
             <div class="form-container" id="modal">
                 <form method="post" action="{{ url_for('index') }}" onsubmit="showLoader()">
                     <div class="input-field">
-                        <label for="site">Choose a site:</label>
+                        
                         <select name="site" id="site" class="choose-website">
                             <option value="" selected disabled>Choose Website</option>
                         </select>
                     </div>
                     <div id="dynamic-inputs"></div>
-                    <button type="submit" class="frame-7">Scrape</button>
+                    <button type="c" class="frame-7">Scrape</button>
                 </form>
                 
             </div>
@@ -1575,13 +1575,19 @@
             </div>
         </div>
     </div>
-    <div class="scraped-data">
-        <button type="button" onclick="toggleTable()">Show table</button>
-        <h2>Scraped Data</h2>
-        <div class="table-container" id="table" style="display: none;"></div>
-        <div class="download-link">
-            <a href="{{ url_for('download_file', filename=filename) }}">Download Excel</a>
-    </div>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+        
+    
+        
+    
+   
+   
+</div>
+</div>
+</div>
     
         
         

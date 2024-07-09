@@ -188,202 +188,82 @@ svg path {
 /* place above------------------------------------------*/
 
 
-.select-website2 {
-  color: #2b2b2b;
-  text-align: left;
-  font-family: "Inter-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-}
-.vector {
-  flex-shrink: 0;
-  width: 9px;
-  height: 6px;
-  position: relative;
-  overflow: visible;
-}
-.frame-2 {
-  background: var(--gray-01, #f6f6f6);
-  border-radius: 8px;
-  border-style: solid;
-  border-color: var(--gray-02, #e8e8e8);
-  border-width: 1px;
-  padding: 15px 19px 15px 19px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  height: 50px;
-  position: relative;
-}
-.products {
-  color: #000000;
-  text-align: left;
-  font-family: "Inter-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-}
-.frame-3 {
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-}
-.periode {
-  color: #ffffff;
-  text-align: left;
-  font-family: "Inter-SemiBold", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: relative;
-}
-
-
-
-
-.calendar {
-  width: 400px;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  overflow: visible;
-  
-}
-
-.jj-mm-aaaaa:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-}
-.jj-mm-aaaaa {
-  background: var(--gray-01);
-  border: 1px solid var(--gray-02);
-  border-radius: 8px;
-  padding: 15px 40px 15px 16px;
-  font-size: 16px;
+.choose-website {
+  display: block;
   width: 100%;
-  color: #333;
-  cursor: pointer;
-  appearance: none; /* Remove default appearance */
-  -webkit-appearance:none;
-  -moz-appearance: none;
-  position: relative;
-  z-index: 1;
-}
-
-
-.frame-4 {
-  background: var(--gray-01, #f6f6f6);
-  border-radius: 8px;
-  border-style: solid;
-  border-color: var(--gray-02, #e8e8e8);
-  border-width: 1px;
-  padding: 15px 19px 15px 19px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  align-self: stretch;
-  flex-shrink: 0;
-  height: 50px;
-  position: relative;
-}
-.calendar2 {
-  flex-shrink: 0;
-  width: 16px;
-  height: 18px;
-  position: relative;
-  overflow: visible;
-}
-.frame-5 {
   padding: 10px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-}
-.add-keywords {
-  color: #ffffff;
-  text-align: left;
-  font-family: "Inter-SemiBold", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: relative;
-}
-.frame-52 {
-  background: var(--gray-01);
-  border: 1px solid var(--gray-02);
-  border-radius: 8px;
-  padding: 15px 40px 15px 16px;
-  width: 100%;
   font-size: 16px;
-  color: #333;
-  cursor: pointer;
-  appearance: none; /* Remove default appearance */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: relative;
-  z-index: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
-.frame-52:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+#dynamic-inputs {
+  margin-bottom: 15px;
 }
-.keyword {
-  color: #000000;
-  text-align: left;
-  font-family: "Inter-Regular", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-}
+
 .frame-7 {
-  justify-content: center;
-  width: 20%;
-  background: #bf0606;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
+  display: inline-block;
   padding: 10px 20px;
-  color: #ffffff;
   font-size: 16px;
+  background-color: #26ff00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  outline: none; /* Remove default button outline */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effect */
 }
 
 .frame-7:hover {
-  background-color: #960404; /* Darker shade of red on hover */
-  transform: translateY(-2px); /* Move button up slightly on hover */
+  background-color: #26ff00;
 }
 
-.frame-7:active {
-  transform: translateY(1px); /* Push button down slightly when clicked */
+/* Styles for form elements */
+.input-field {
+  margin-bottom: 15px;
 }
 
-
-.generate {
-  color: #ffffff;
-  text-align: left;
-  font-family: "Inter-SemiBold", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: relative;
+.input-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
+.choose-website {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#sector, #keywords {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.frame-7 {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #26ff00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.frame-7:hover {
+  background-color:#26ff00;
+}
+
+.frame-7.active {
+  background-color: #26ff00; /* Adjust active state color as needed */
+}
 
 /* loader */
 
@@ -478,7 +358,52 @@ svg path {
   background-color: #8c0404;
 }
 
-.scraped-data {
-  display: none;
 
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+
+.signin-signup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure modal appears above other content */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+.download-link-custom {
+  text-align: center;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.download-link-custom a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #26ff00;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.download-link-custom a:hover {
+  background-color: #26ff00;
 }

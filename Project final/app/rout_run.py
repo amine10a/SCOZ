@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, send_file
-from utils.versteigerungskalender import verstei, save_to_excel_verstei
-from utils.unternehmensregister import unter, save_to_excel_unternehmensregister
+from utils.versteigerungskalender import verstei
+from utils.insolvenzbekanntmachungen import Insolvenzbekanntmachungen
+from utils.dealone import deal
 from waitress import serve
+from utils.tools import save_to_excel,reverse_date_format
 
 app = Flask(__name__)
 
@@ -9,26 +11,31 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         site = request.form.get('site')
-        sector = request.form.get('sector')
-        keywords = request.form.get('keywords')
+        
 
         if site == 'versteigerungskalender':
+            sector = request.form.get('sector')
+            keywords = request.form.get('keywords')
             data = verstei(keywords, sector)
             filename = "verstei_data.xlsx"
-            file = save_to_excel_verstei(data, filename)
-            return render_template('index.html', filename=file)
+            file = save_to_excel(data, filename)
+            return render_template('down.html', filename=file)
         
-        if site == "unternehmensregister":
-            data = unter(keywords, sector)
-            filename = "unternehmensregister_data.xlsx"
-            file = save_to_excel_unternehmensregister(data, filename)
-            return render_template('index.html', filename=file)
+        if site == "Insolvenzbekanntmachungen":
+            keywords = request.form.get('keywords')
+            dateStart = reverse_date_format(request.form.get('dateStart'))
+            dateEnd = reverse_date_format(request.form.get('dateEnd'))
+            data = Insolvenzbekanntmachungen(keywords,dateStart,dateEnd)
+            filename = "insolv_data.xlsx"
+            file = save_to_excel(data, filename)
+            return render_template('down.html', filename=file)
         
-        if site == "firminform":
-            data = unter(keywords, sector)
-            filename = "firminform_data.xlsx"
-            file = save_to_excel_unternehmensregister(data, filename)
-            return render_template('index.html', filename=file)
+        if site == "dealone":
+            keywords = request.form.get('keywords')
+            data = deal(keywords)
+            filename = "DealOne_data.xlsx"
+            file = save_to_excel(data, filename)
+            return render_template('down.html', filename=file)
 
     return render_template('index.html')
 

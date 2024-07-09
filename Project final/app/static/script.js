@@ -112,7 +112,8 @@ document.addEventListener("DOMContentLoaded", function() {
 const countryWebsites = {
     Germany: [
         { value: 'versteigerungskalender', text: 'www.versteigerungskalender.de' },
-        { value: 'another-site', text: 'www.another-site.de' }
+        { value: 'Insolvenzbekanntmachungen', text: 'www.Insolvenzbekanntmachungen.de' },
+        { value: 'dealone', text: 'www.deal-one.de' },
     ],
     usa: [
         { value: 'us-site1', text: 'www.us-site1.com' },
@@ -126,9 +127,10 @@ const countryWebsites = {
 
 const siteInputs = {
     versteigerungskalender: `
+    
         <div class="input-field">
                     <label for="sector">Filter by sector:</label>
-                    <select name="sector" id="sector">
+                    <select name="sectors[]" id="sector" class="choose-sector" multiple="multiple">
                         <option value=""></option>
                         <option value="40098">Agriculture & Animals</option>
                         <option value="40142">Architects & Planning Offices</option>
@@ -171,17 +173,28 @@ const siteInputs = {
                     <input type="text" id="keywords" name="keywords" placeholder="Enter keywords">
                 </div>
     `,
-    'another-site': `
-        <div class="input-field">
-            <label for="category">Category:</label>
-            <input type="text" id="category" name="category" placeholder="Enter category">
-        </div>
+    'Insolvenzbekanntmachungen': `
+         
+                    <div id="dynamic-inputs">
+                        <div class="input-field">
+                            
+                            <input type="text" id="keywords" name="keywords" placeholder="Enter keywords">
+                        </div>
+                        <div class="input-field">
+                            
+                            <input type="date" id="dateStart" name="dateStart" placeholder="Start Date">
+                        </div>
+                        <div class="input-field">
+                            
+                            <input type="date" id="dateEnd" name="dateEnd" placeholder="End Date">
+                        </div>
+                    </div>>
     `,
-    'us-site1': `
-        <div class="input-field">
-            <label for="product">Product:</label>
-            <input type="text" id="product" name="product" placeholder="Enter product">
-        </div>
+    'dealone': `
+                <div class="input-field">
+                    <label for="keywords">Keywords:</label>
+                    <input type="text" id="keywords" name="keywords" placeholder="Enter keywords">
+                </div>
     `,
     'us-site2': `
         <div class="input-field">
@@ -206,12 +219,11 @@ const siteInputs = {
 function updateWebsites(selectedCountry) {
     const siteSelect = document.getElementById('site');
     const dynamicInputs = document.getElementById('dynamic-inputs');
-
     siteSelect.innerHTML = '<option value="" selected disabled>Choose Website</option>';
 
     if (selectedCountry && countryWebsites[selectedCountry]) {
         countryWebsites[selectedCountry].forEach(site => {
-        if(site.value=="versteigerungskalender"){
+        if(site.value){
             const option = document.createElement('option');
             option.value = site.value;
             option.textContent = site.text;
@@ -251,3 +263,8 @@ function toggleTable() {
 // Simulate selecting a country
 const countryTitle = document.querySelector('.countrytitle').textContent.trim();
 updateWebsites(countryTitle);
+
+
+function closeModal() {
+    modall.style.display = 'none';
+}

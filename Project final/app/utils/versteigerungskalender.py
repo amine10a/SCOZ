@@ -1,9 +1,11 @@
 import requests
 from scrapy import Selector
-from googletrans import Translator
+#from tools import save_to_excel
 import pandas as pd
 import os
 from concurrent.futures import ThreadPoolExecutor
+from googletrans import Translator
+
 
 # Function to get page source using requests
 def get_html(url):
@@ -59,22 +61,6 @@ def get_date_and_id(detail_url):
 def convert_to_df(info_list):
     return pd.DataFrame(info_list)
 
-# Function to save DataFrame to Excel
-def save_to_excel_verstei(df, base_filename):
-    directory = "verstei"
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-    filename = os.path.join(directory, base_filename)
-    counter = 1
-    while os.path.exists(filename):
-        filename = os.path.join(directory, f"{os.path.splitext(base_filename)[0]}_{counter}.xlsx")
-        counter += 1
-
-    df.to_excel(filename, index=False)
-    print(f"Data saved to {filename}")
-    
-    return filename
 
 # Function to check for the next page
 def next_page(selector):
@@ -108,9 +94,10 @@ def verstei(keywords, sector):
                 break
     return all_data
 
+
 # Test
 if __name__ == "__main__":
-    keywords = ""
-    sector = "40142%2C40116%2C40098%2C40100%2C40102%2C40106%2C40108%2C40110%2C40112%2C40114%2C40118%2C40104%2C40122%2C40124%2C40128%2C40130%2C40132%2C40176%2C40174%2C40168%2C40166%2C40164%2C40162%2C40160%2C40156%2C40154%2C40152%2C99867%2C40148%2C40144%2C40140%2C40138%2C40136%2C40134"
+    keywords = "vijzivizhvizrh"
+    sector = ""
     data = verstei(keywords, sector)
-    save_to_excel_verstei(data, "verstei_data.xlsx")
+    #save_to_excel(data, "verstei_data.xlsx")
